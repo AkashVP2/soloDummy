@@ -58,6 +58,7 @@ const Signup = () => {
             value={password}
             onChange={handlePasswordChange}
             required
+            autoComplete="current-password"
           />
           <input
             type="password"
@@ -65,6 +66,7 @@ const Signup = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
+            autoComplete="current-password"
           />
         </div>
 

@@ -18,13 +18,29 @@ const authSlice = createSlice({
     signInSuccess: (state, action) => {
       state.loading = false;
       state.isAuthenticated = true;
-      state.user = action.payload; 
+      state.user = action.payload;
       state.error = null;
     },
     signInFailure: (state, action) => {
       state.loading = false;
       state.isAuthenticated = false;
-      state.user = null; 
+      state.user = null;
+      state.error = action.payload;
+    },
+    signUpRequest: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    signUpSuccess: (state, action) => {
+      state.loading = false;
+      state.isAuthenticated = true;
+      state.user = action.payload;
+      state.error = null;
+    },
+    signUpFailure: (state, action) => {
+      state.loading = false;
+      state.isAuthenticated = false;
+      state.user = null;
       state.error = action.payload;
     },
     signOut: (state) => {
@@ -35,5 +51,8 @@ const authSlice = createSlice({
   },
 });
 
-export const { signInRequest, signInSuccess, signInFailure, signOut } = authSlice.actions;
+export const { signInRequest, signInSuccess, signInFailure, signUpRequest, signUpSuccess, signUpFailure, signOut } = authSlice.actions;
 export default authSlice.reducer;
+
+// export const { signInRequest, signInSuccess, signInFailure, signOut } = authSlice.actions;
+// export default authSlice.reducer;

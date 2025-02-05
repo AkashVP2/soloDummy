@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom"; // ✅ Import useHistory for navigation
-import { signInRequest } from "../../store/authSlice"; // Import action
-import CustomButton from "../CustomButtom/CustomButton"; // Adjust path
-import "./SignIn.css"; // Import the CSS styles for the SignIn form
+import { useHistory } from "react-router-dom"; 
+import { signInRequest } from "../../store/authSlice";
+import CustomButton from "../CustomButtom/CustomButton"; 
+import "./SignIn.css"; 
 
 const SignIn = () => {
   const dispatch = useDispatch();
-  const history = useHistory(); // ✅ Initialize history for navigation
+  const history = useHistory(); 
 
   const { user, loading, error } = useSelector((state) => state.auth); //Get auth state
 
@@ -19,6 +19,7 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Submitting Sign-in:", { email, password });
     dispatch(signInRequest({ email, password }));
   };
 
@@ -57,6 +58,7 @@ const SignIn = () => {
             name="password"
             placeholder="Enter your password"
             value={password}
+            autoComplete="current-password"
             onChange={handlePasswordChange}
             required
           />

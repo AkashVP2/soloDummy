@@ -3,6 +3,8 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import store from '../client/store/store';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -23,9 +25,11 @@ const jsScriptTagsFromAssets = (assets, entrypoint, ...extra) => {
 export const renderApp = (req, res) => {
   const context = {};
   const markup = renderToString(
-    <StaticRouter context={context} location={req.url}>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>
+    </Provider>
   );
   const html = `<!doctype html>
   <html lang="">
