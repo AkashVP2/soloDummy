@@ -1,0 +1,27 @@
+.dashboardNav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.dashboardText{
+display: flex;
+justify-content: center;
+align-items: center;
+color: orange;
+
+}
+
+.authBtn{
+    display: flex;
+    gap: 10px;
+}
+
+.dashboardNav .btn{
+   background-color: orange;
+   width: 100px;
+   height: 50px;
+   text-align: center;
+   padding: 15px;
+   color: white;
+   border-radius: 10px;
+}

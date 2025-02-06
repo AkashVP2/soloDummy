@@ -29,7 +29,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (user) {
-      history.push("/");
+      history.push("/home");
     }
   }, [user, history]);
 
